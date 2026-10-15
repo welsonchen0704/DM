@@ -103,6 +103,8 @@ button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
 .wf span{position:relative;z-index:1;background:#F7F1EC;padding:0 4px;font-family:var(--sans);color:var(--rose-deep);line-height:1.4}
 .wf-n{font-size:10px;word-break:break-all}.wf-d{font-size:10px;color:var(--ink-3)!important}.wf-s{font-size:9px}
 .wf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.wf.ok{border:0}
+.gift .qty{z-index:3}
 .gift .im .wf{height:100%;border-radius:0}
 .night .nt{width:40px}.night .nt .wf{border-color:#8a6f66;background:#4a3832}.night .nt .wf span{display:none}
 .night .nt .wf:before,.night .nt .wf:after{opacity:.3}
@@ -205,7 +207,7 @@ function money(n){return "$"+n.toLocaleString("en-US");}
 /* 禮物卡 */
 function ph(f,w,h,small){
   return '<div class="wf" style="aspect-ratio:'+w+'/'+h+'">'+(small?'<span class="wf-s">'+f.replace("DM11_","")+'</span>':'<span class="wf-n">'+f+'.jpg</span><span class="wf-d">'+w+' × '+h+' px</span>')+
-    '<img src="img/'+f+'.jpg" alt="" onerror="this.remove()"></div>';
+    '<img src="img/'+f+'.jpg" alt="" onload="this.parentNode.classList.add(\'ok\')" onerror="this.remove()"></div>';
 }
 function gift(p,state){
   var q=(p.name.match(/×(\d)/)||[])[1];
@@ -287,7 +289,7 @@ else{
   c2='<div class="ribbon"></div><img class="photo" src="'+IMG.S2+'" alt="玫瑰與燭光"><div class="pad">'+
    '<div class="kicker">第二份生日禮物 '+stag(S2,"11/11 晚上 8 點開始")+'</div><div class="h">把心意送出去</div><div class="meta">小燕生日月・11/11 20:00–11/21</div>'+
    '<div class="say">生日這個月，<br>想把一直相信的東西，好好送到你手上。</div>'+BOW+
-   '<div class="hero"><span class="tag">新品</span><div style="margin:4px 0 12px">'+ph("DM11_G2_10_KOC074",1200,800)+'</div>'+
+   '<div class="hero"><span class="tag">新品</span><div style="margin:4px 0 12px">'+ph("DM11_G2_10_KOC074",1280,800)+'</div>'+
     '<div class="nm">玫瑰超導賦活精華油 30ml ×2</div><div class="plus">再送 玫瑰超導全能安瓶 1盒＋美好托特包</div>'+
     '<ul><li>補水是給水，補油是留住水</li><li>乾式觸感基底 85%，不留油膜、不悶</li><li>四季皆可用</li></ul>'+
     '<div class="pr"><b>$2,480</b><s>$7,130</s></div><a class="btn soft" style="margin-top:12px" href="'+link("KOC074")+'" target="_blank" rel="noopener">看看這份 →</a></div>'+
